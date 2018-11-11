@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// SwitchのJoycon接続テスト
 /// </summary>
-public class JoyconTest : MonoBehaviour {
+public class JoyconTest : SingletonMonoBehaviour<JoyconTest> {
     private static readonly Joycon.Button[] m_buttons =
         Enum.GetValues(typeof(Joycon.Button)) as Joycon.Button[];
 
@@ -33,13 +33,13 @@ public class JoyconTest : MonoBehaviour {
 
         foreach (var button in m_buttons) {
 
-            if(null != m_joyconL){
+            if (null != m_joyconL) {
                 if (m_joyconL.GetButton(button)) {
                     m_pressedButtonL = button;
                 }
             }
 
-            if(null != m_joyconR){
+            if (null != m_joyconR) {
                 if (m_joyconR.GetButton(button)) {
                     m_pressedButtonR = button;
                 }
@@ -55,6 +55,10 @@ public class JoyconTest : MonoBehaviour {
         }
     }
 
+    public List<Joycon> GetJoyCon(){
+        return m_joycons;
+    }
+#if UNITY_EDITOR
     private void OnGUI() {
         var style = GUI.skin.GetStyle("label");
         style.fontSize = 24;
@@ -99,4 +103,5 @@ public class JoyconTest : MonoBehaviour {
 
         GUILayout.EndHorizontal();
     }
+#endif
 }
