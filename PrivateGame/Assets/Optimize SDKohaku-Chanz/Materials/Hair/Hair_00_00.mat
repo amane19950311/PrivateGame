@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Hair_00_00
   m_Shader: {fileID: 4800000, guid: abaf2020b803b6847b5c081ed22c05c5, type: 3}
   m_ShaderKeywords: 
